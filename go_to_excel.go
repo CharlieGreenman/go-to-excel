@@ -10,6 +10,7 @@ func main() {
     var sheet *xlsx.Sheet
     var row *xlsx.Row
     var cell *xlsx.Cell
+    var cell1 *xlsx.Cell
     var err error
 
     file = xlsx.NewFile()
@@ -20,7 +21,10 @@ func main() {
     row = sheet.AddRow()
     cell = row.AddCell()
     cell.Value = "I am a cell!"
-    err = file.Save("MyXLSXFile.xlsx")
+    cell1 = row.AddCell()
+    cell1.Value = "I am a cell and such"
+
+    err = file.Save("goToExcel.xlsx")
     if err != nil {
         fmt.Printf(err.Error())
     }
